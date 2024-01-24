@@ -1,0 +1,56 @@
+{
+  "name": "rabbitmq-ts",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Dan Dev",
+  "license": "MIT",
+  "type": "module",
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-stage"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.ts": [
+      "yarn lint --fix",
+      "git add"
+    ]
+  },
+  "scripts": {
+    "start": "tsx dist/server.js",
+    "start:dev": "tsx watch src/server.ts",
+    "start:start": "npm run build && npm run start",
+    "build": "tsup src",
+    "test": "vitest",
+    "lint": "eslint src/**/*.ts",
+    "prepare": "husky install"
+  },
+  "devDependencies": {
+    "@types/amqplib": "^0.10.4",
+    "@typescript-eslint/eslint-plugin": "^5.47.1",
+    "@typescript-eslint/parser": "^5.47.1",
+    "eslint": "^8.31.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-config-standard": "^17.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-n": "^15.6.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-promise": "^6.1.1",
+    "eslint-plugin-standard": "^4.0.1",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.1.0",
+    "prettier": "^2.0.5",
+    "tsup": "^6.5.0",
+    "tsx": "^3.12.2",
+    "typescript": "^4.9.4",
+    "vite": "^4.0.4",
+    "vite-plugin-eslint": "^1.8.1",
+    "vite-tsconfig-paths": "^4.0.3"
+  },
+  "dependencies": {
+    "amqplib": "^0.10.3",
+    "axios": "^1.6.5",
+    "dotenv": "^16.3.1"
+  }
+}
